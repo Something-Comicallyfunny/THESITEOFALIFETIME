@@ -1,14 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './css.css'; 
-import App from './App';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 const App = () => {
   const [theme, setTheme] = useState('dark');
   const [expandedIndex, setExpandedIndex] = useState(null);
@@ -16,23 +8,28 @@ const App = () => {
   const sections = [
     {
       title: 'Who is Something Comical?',
-      content: `I’m Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.`
+      content:
+        'I’m Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.'
     },
     {
       title: 'Coding',
-      content: `I have a lot of experience in coding. From JS to C++, I have used them all. I also have experience with server backends and frontends.`
+      content:
+        'I have a lot of experience in coding. From JS to C++, I have used them all. I also have experience with server backends and frontends.'
     },
     {
       title: 'Audio Mixing',
-      content: `One huge aspect of my life is music. I love music. With the love of music, comes (at least for me) the love of making it sound good. I do audio mixing for a few local companies. I primarily mix on the Allen & Heath SQ5 and the Behringer X32.`
+      content:
+        'One huge aspect of my life is music. I love music. With the love of music, comes (at least for me) the love of making it sound good. I do audio mixing for a few local companies. I primarily mix on the Allen & Heath SQ5 and the Behringer X32.'
     },
     {
       title: 'Lighting',
-      content: `With the love of music and making it sound good also comes the love of making it look good. I love lighting and did lighting for a local company part time for a few years. I'm trained in ONYX by Obsidian Control Systems however I'm looking to expand my knowledge into other software.`
+      content:
+        'With the love of music and making it sound good also comes the love of making it look good. I love lighting and did lighting for a local company part time for a few years. I\'m trained in ONYX by Obsidian Control Systems however I\'m looking to expand my knowledge into other software.'
     },
     {
       title: 'My involvement in TFX',
-      content: 'I’m currently in the main 10 dev center for TriTriSim TFX (TriTriSim.com). We help bring realistic FX to MSFS 2020 and 24. I love the TFX community and I’m so excited to see what else our dev team can cook up.'
+      content:
+        'I’m currently in the main 10 dev center for TriTriSim TFX (TriTriSim.com). We help bring realistic FX to MSFS 2020 and 24. I love the TFX community and I’m so excited to see what else our dev team can cook up.'
     },
     {
       title: 'Random photos and screenshots',
@@ -40,214 +37,136 @@ const App = () => {
     }
   ];
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+  const handleExpand = (index) => setExpandedIndex(expandedIndex === index ? null : index);
 
   return (
-    <>
-      <style>{`
-        @keyframes textShimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
-
-        .shimmer-text {
-          position: relative;
-          display: inline-block;
-          background: linear-gradient(
-            90deg,
-            #00c6ff 0%,
-            #ff00c6 50%,
-            #00c6ff 100%
-          );
-          background-size: 200% 100%;
-          background-position: -200% 0;
-          background-repeat: no-repeat;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: ${theme === 'dark' ? '#ffffff' : '#000000'};
-          transition: color 0.6s ease;
-        }
-
-        .shimmer-text:hover {
-          animation: textShimmer 1.5s linear forwards;
-          color: transparent;
-        }
-      `}</style>
-      
+    <div
+      style={{
+        minHeight: '100vh',
+        backgroundImage: `url('/737.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        padding: '2rem'
+      }}
+    >
+      {/* Overlay */}
       <div
         style={{
-          backgroundImage: `url('https://website.cdn.tritrisim.com/compressed/737.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '100vh',
-          position: 'relative',
-          filter: theme === 'dark' ? 'brightness(1)' : 'brightness(1)'
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: theme === 'dark'
+            ? 'rgba(0, 0, 0, 0.65)'
+            : 'rgba(255, 255, 255, 0.65)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+          zIndex: 0
         }}
-        className="flex flex-col items-center justify-center overflow-hidden"
-      >
-        <div
+      />
+
+      <div style={{ zIndex: 1, textAlign: 'center', maxWidth: '800px', width: '100%' }}>
+        {/* Title */}
+        <h1
           style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: theme === 'dark'
-              ? 'rgba(0, 0, 0, 0.3)'
-              : 'rgba(255, 255, 255, 0.4)',
-            backdropFilter: theme === 'dark' ? 'blur(5px)' : 'blur(0px)',
-            WebkitBackdropFilter: theme === 'dark' ? 'blur(5px)' : 'blur(0px)'
+            fontSize: '3rem',
+            fontWeight: 'bold',
+            color: theme === 'dark' ? '#fff' : '#000',
+            marginBottom: '0.5rem',
+            textShadow: '2px 2px 8px rgba(0,0,0,0.5)'
           }}
-        />
-
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: [0.075, 0.82, 0.165, 1] }}
-          style={{ position: 'relative', zIndex: 10, width: '100%' }}
         >
-          <header className="mb-12 text-center max-w-md mx-auto">
-            <h1
-              className="shimmer-text"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                textAlign: 'center',
-                width: '100%',
-                fontSize: '3.5rem',
-                fontWeight: 'bold',
-                marginBottom: '1rem'
-              }}
-            >
-              Something Comical
-            </h1>
-            <p
-              className="text-lg sm:text-xl lg:text-2xl leading-relaxed"
-              style={{
-                fontFamily: "'Roboto', sans-serif",
-                color: theme === 'dark' ? '#ffffff' : '#000000'
-              }}
-            >
-              A bit about me
-            </p>
-            <button
-              onClick={toggleTheme}
-              className="mt-4 px-4 py-2 rounded-lg shadow-md transition-all duration-300"
-              style={{
-                backgroundColor: theme === 'dark'
-                  ? 'rgba(255, 255, 255, 0.1)'
-                  : 'rgba(255, 255, 255, 0.4)',
-                color: theme === 'dark' ? '#ffffff' : '#000000',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                border: theme === 'dark'
-                  ? '1px solid rgba(255, 255, 255, 0.2)'
-                  : '1px solid rgba(0, 0, 0, 0.1)'
-              }}
-            >
-              Switch to {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-            </button>
-          </header>
+          Something Comical
+        </h1>
 
-          <section className="max-w-md sm:max-w-lg lg:max-w-2xl xl:max-w-3xl mx-auto px-4">
-            {sections.map((section, index) => (
-              <motion.div
-                key={index}
-                layout
-                onClick={() =>
-                  setExpandedIndex(index === expandedIndex ? null : index)
-                }
-                aria-expanded={index === expandedIndex}
-                className={`cursor-pointer rounded-lg shadow-lg p-6 mb-4 flex flex-col space-y-2 transition-all duration-[1200ms]`}
-                style={{
-                  backgroundColor: theme === 'dark'
-                    ? 'rgba(255, 255, 255, 0.1)'
-                    : 'rgba(255, 255, 255, 0.6)',
-                  backdropFilter: 'blur(10px)',
-                  WebkitBackdropFilter: 'blur(10px)',
-                  border: theme === 'dark'
-                    ? '1px solid rgba(255, 255, 255, 0.1)'
-                    : '1px solid rgba(0, 0, 0, 0.05)',
-                  color: theme === 'dark' ? '#ffffff' : '#000000'
-                }}
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: theme === 'dark'
-                    ? '0 1px 3px rgba(0, 0, 0, 0.2)'
-                    : '0 1px 3px rgba(0, 0, 0, 0.1)'
-                }}
-                transition={{
-                  duration: 1.2,
-                  ease: [0.04, 0.62, 0.23, 0.98]
-                }}
-              >
-                <motion.h2
-                  className="shimmer-text"
+        {/* Subtitle */}
+        <p
+          style={{
+            fontSize: '1.25rem',
+            color: theme === 'dark' ? '#ccc' : '#333',
+            marginBottom: '1.5rem',
+            textShadow: '1px 1px 4px rgba(0,0,0,0.3)'
+          }}
+        >
+          A bit about me and what I do
+        </p>
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          style={{
+            padding: '0.5rem 1rem',
+            borderRadius: '999px',
+            border: 'none',
+            background: theme === 'dark' ? '#fff' : '#000',
+            color: theme === 'dark' ? '#000' : '#fff',
+            cursor: 'pointer',
+            marginBottom: '2rem'
+          }}
+        >
+          Switch to {theme === 'dark' ? 'Light' : 'Dark'} Mode
+        </button>
+
+        {/* Sections */}
+        {sections.map((section, index) => (
+          <motion.div
+            key={index}
+            onClick={() => handleExpand(index)}
+            whileHover={{ scale: 1.02 }}
+            style={{
+              background: theme === 'dark'
+                ? 'rgba(255,255,255,0.1)'
+                : 'rgba(0,0,0,0.1)',
+              borderRadius: '20px',
+              padding: '1rem',
+              marginBottom: '1rem',
+              cursor: 'pointer',
+              overflow: 'hidden',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
+            }}
+          >
+            <h2 style={{ margin: 0, color: theme === 'dark' ? '#fff' : '#000' }}>
+              {section.title}
+            </h2>
+            <AnimatePresence>
+              {expandedIndex === index && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
                   style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: '1.25rem',
-                    fontWeight: '700',
-                    marginBottom: '0.5rem',
-                    display: 'inline-block'
+                    color: theme === 'dark' ? '#ccc' : '#333',
+                    marginTop: '0.5rem'
                   }}
-                  layout="position"
                 >
-                  {section.title}
-                </motion.h2>
-                <AnimatePresence>
-                  {index === expandedIndex && (
-                    <motion.div
-                      key="content"
-                      initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
-                      animate={{
-                        opacity: 1,
-                        height: 'auto',
-                        overflow: 'hidden'
-                      }}
-                      exit={{
-                        opacity: 0,
-                        height: 0,
-                        overflow: 'hidden',
-                        transition: {
-                          duration: 0.6,
-                          ease: [0.075, 0.82, 0.165, 1]
-                        }
-                      }}
-                      transition={{
-                        duration: 0.8,
-                        ease: [0.075, 0.82, 0.165, 1]
-                      }}
-                      className="text-sm sm:text-base leading-relaxed"
-                      style={{
-                        fontFamily: "'Roboto', sans-serif",
-                        color: theme === 'dark' ? '#ffffff' : '#000000'
-                      }}
-                    >
-                      {section.content}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </section>
+                  {section.content}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        ))}
 
-          <footer className="mt-12 text-center">
-            <p
-              className="text-sm sm:text-base"
-              style={{
-                fontFamily: "'Roboto', sans-serif",
-                color: theme === 'dark' ? '#ffffff' : '#000000'
-              }}
-            >
-              &copy; 2025 something_comical. All rights reserved.
-            </p>
-          </footer>
-        </motion.div>
+        {/* Footer */}
+        <footer
+          style={{
+            marginTop: '2rem',
+            fontSize: '0.9rem',
+            color: theme === 'dark' ? '#aaa' : '#555'
+          }}
+        >
+          © {new Date().getFullYear()} Something Comical
+        </footer>
       </div>
-    </>
+    </div>
   );
 };
 
 export default App;
-
