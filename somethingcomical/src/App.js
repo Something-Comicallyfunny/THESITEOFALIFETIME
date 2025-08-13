@@ -87,8 +87,8 @@ const App = () => {
             right: 0,
             bottom: 0,
             backgroundColor: theme === 'dark'
-              ? 'rgba(0, 0, 0, 0.4)'
-              : 'rgba(255, 255, 255, 0.5)',
+              ? 'rgba(0, 0, 0, 0.7)'
+              : 'rgba(255, 255, 255, 0.7)',
             backdropFilter: theme === 'dark' ? 'blur(10px)' : 'blur(5px)',
             WebkitBackdropFilter: theme === 'dark' ? 'blur(10px)' : 'blur(5px)'
           }}
@@ -107,7 +107,7 @@ const App = () => {
                 fontFamily: "'Poppins', sans-serif",
                 textAlign: 'center',
                 width: '100%',
-                fontSize: '4rem',
+                fontSize: '5rem',
                 fontWeight: 'bold',
                 marginBottom: '1.5rem'
               }}
@@ -115,7 +115,7 @@ const App = () => {
               Something Comical
             </h1>
             <p
-              className="text-xl sm:text-2xl lg:text-3xl leading-relaxed"
+              className="text-2xl sm:text-3xl lg:text-4xl leading-relaxed"
               style={{
                 fontFamily: "'Roboto', sans-serif",
                 color: theme === 'dark' ? '#ffffff' : '#000000'
@@ -125,24 +125,24 @@ const App = () => {
             </p>
             <button
               onClick={toggleTheme}
-              className="mt-6 px-6 py-3 rounded-lg shadow-md transition-all duration-300 text-lg"
+              className="mt-6 px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-lg"
               style={{
                 backgroundColor: theme === 'dark'
-                  ? 'rgba(255, 255, 255, 0.1)'
-                  : 'rgba(255, 255, 255, 0.4)',
+                  ? 'rgba(255, 255, 255, 0.2)'
+                  : 'rgba(255, 255, 255, 0.5)',
                 color: theme === 'dark' ? '#ffffff' : '#000000',
                 backdropFilter: 'blur(10px)',
                 WebkitBackdropFilter: 'blur(10px)',
                 border: theme === 'dark'
-                  ? '1px solid rgba(255, 255, 255, 0.2)'
-                  : '1px solid rgba(0, 0, 0, 0.1)'
+                  ? '1px solid rgba(255, 255, 255, 0.3)'
+                  : '1px solid rgba(0, 0, 0, 0.2)'
               }}
             >
               Switch to {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
             </button>
           </header>
 
-          <section className="max-w-md sm:max-w-lg lg:max-w-2xl xl:max-w-3xl mx-auto px-4">
+          <section className="max-w-xl sm:max-w-2xl lg:max-w-4xl mx-auto px-4">
             {sections.map((section, index) => (
               <motion.div
                 key={index}
@@ -151,23 +151,23 @@ const App = () => {
                   setExpandedIndex(index === expandedIndex ? null : index)
                 }
                 aria-expanded={index === expandedIndex}
-                className={`cursor-pointer rounded-2xl shadow-lg p-8 mb-6 flex flex-col space-y-3 transition-all duration-[1200ms]`}
+                className={`cursor-pointer rounded-2xl shadow-xl p-8 mb-6 flex flex-col space-y-4 transition-all duration-[1200ms]`}
                 style={{
                   backgroundColor: theme === 'dark'
-                    ? 'rgba(255, 255, 255, 0.15)'
-                    : 'rgba(255, 255, 255, 0.7)',
+                    ? 'rgba(255, 255, 255, 0.2)'
+                    : 'rgba(255, 255, 255, 0.8)',
                   backdropFilter: 'blur(20px)',
                   WebkitBackdropFilter: 'blur(20px)',
                   border: theme === 'dark'
-                    ? '1px solid rgba(255, 255, 255, 0.15)'
-                    : '1px solid rgba(0, 0, 0, 0.1)',
+                    ? '1px solid rgba(255, 255, 255, 0.2)'
+                    : '1px solid rgba(0, 0, 0, 0.15)',
                   color: theme === 'dark' ? '#ffffff' : '#000000'
                 }}
                 whileHover={{
                   scale: 1.02,
                   boxShadow: theme === 'dark'
-                    ? '0 4px 6px rgba(0, 0, 0, 0.3)'
-                    : '0 4px 6px rgba(0, 0, 0, 0.15)'
+                    ? '0 8px 16px rgba(0, 0, 0, 0.4)'
+                    : '0 8px 16px rgba(0, 0, 0, 0.2)'
                 }}
                 transition={{
                   duration: 1.2,
@@ -178,7 +178,7 @@ const App = () => {
                   className="shimmer-text"
                   style={{
                     fontFamily: "'Poppins', sans-serif",
-                    fontSize: '1.5rem',
+                    fontSize: '2rem',
                     fontWeight: '700',
                     marginBottom: '0.5rem',
                     display: 'inline-block'
@@ -210,7 +210,7 @@ const App = () => {
                         duration: 0.8,
                         ease: [0.075, 0.82, 0.165, 1]
                       }}
-                      className="text-base sm:text-lg leading-relaxed"
+                      className="text-lg sm:text-xl leading-relaxed"
                       style={{
                         fontFamily: "'Roboto', sans-serif",
                         color: theme === 'dark' ? '#ffffff' : '#000000'
