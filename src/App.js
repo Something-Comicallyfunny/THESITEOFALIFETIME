@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './css.css'; 
+import App from './App';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 const App = () => {
   const [theme, setTheme] = useState('dark');
   const [expandedIndex, setExpandedIndex] = useState(null);
