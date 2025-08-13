@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/THESITEOFALIFETIME/static/css/main.3b6bc05d.css",
+    "main.js": "/THESITEOFALIFETIME/static/js/main.f63144f4.js",
+    "static/js/453.ae488751.chunk.js": "/THESITEOFALIFETIME/static/js/453.ae488751.chunk.js",
+    "index.html": "/THESITEOFALIFETIME/index.html",
+    "main.3b6bc05d.css.map": "/THESITEOFALIFETIME/static/css/main.3b6bc05d.css.map",
+    "main.f63144f4.js.map": "/THESITEOFALIFETIME/static/js/main.f63144f4.js.map",
+    "453.ae488751.chunk.js.map": "/THESITEOFALIFETIME/static/js/453.ae488751.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b6bc05d.css",
+    "static/js/main.f63144f4.js"
+  ]
+}
