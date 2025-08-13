@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import './App.css'; // for Google Fonts
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
@@ -44,7 +45,7 @@ const App = () => {
     <div
       style={{
         minHeight: '100vh',
-        backgroundImage: `url('/737.jpg')`,
+        backgroundImage: `url('https://website.cdn.tritrisim.com/compressed/737.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
@@ -52,10 +53,11 @@ const App = () => {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        padding: '2rem'
+        padding: '2rem',
+        fontFamily: "'Poppins', sans-serif"
       }}
     >
-      {/* Overlay */}
+      {/* Full-page overlay for slight dark/light tint */}
       <div
         style={{
           position: 'absolute',
@@ -64,10 +66,10 @@ const App = () => {
           right: 0,
           bottom: 0,
           backgroundColor: theme === 'dark'
-            ? 'rgba(0, 0, 0, 0.65)'
-            : 'rgba(255, 255, 255, 0.65)',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
+            ? 'rgba(0,0,0,0.3)'
+            : 'rgba(255,255,255,0.2)',
+          backdropFilter: 'blur(2px)',
+          WebkitBackdropFilter: 'blur(2px)',
           zIndex: 0
         }}
       />
@@ -77,10 +79,10 @@ const App = () => {
         <h1
           style={{
             fontSize: '3rem',
-            fontWeight: 'bold',
+            fontWeight: '700',
             color: theme === 'dark' ? '#fff' : '#000',
             marginBottom: '0.5rem',
-            textShadow: '2px 2px 8px rgba(0,0,0,0.5)'
+            textShadow: '2px 2px 8px rgba(0,0,0,0.4)'
           }}
         >
           Something Comical
@@ -90,9 +92,9 @@ const App = () => {
         <p
           style={{
             fontSize: '1.25rem',
-            color: theme === 'dark' ? '#ccc' : '#333',
+            color: theme === 'dark' ? '#eee' : '#333',
             marginBottom: '1.5rem',
-            textShadow: '1px 1px 4px rgba(0,0,0,0.3)'
+            textShadow: '1px 1px 4px rgba(0,0,0,0.2)'
           }}
         >
           A bit about me and what I do
@@ -114,7 +116,7 @@ const App = () => {
           Switch to {theme === 'dark' ? 'Light' : 'Dark'} Mode
         </button>
 
-        {/* Sections */}
+        {/* Sections with frosted glass effect */}
         {sections.map((section, index) => (
           <motion.div
             key={index}
@@ -122,14 +124,17 @@ const App = () => {
             whileHover={{ scale: 1.02 }}
             style={{
               background: theme === 'dark'
-                ? 'rgba(255,255,255,0.1)'
-                : 'rgba(0,0,0,0.1)',
+                ? 'rgba(0,0,0,0.35)'
+                : 'rgba(255,255,255,0.35)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
               borderRadius: '20px',
               padding: '1rem',
               marginBottom: '1rem',
               cursor: 'pointer',
               overflow: 'hidden',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
+              boxShadow: '0 4px 30px rgba(0,0,0,0.2)',
+              border: theme === 'dark' ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(0,0,0,0.1)'
             }}
           >
             <h2 style={{ margin: 0, color: theme === 'dark' ? '#fff' : '#000' }}>
@@ -143,7 +148,7 @@ const App = () => {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    color: theme === 'dark' ? '#ccc' : '#333',
+                    color: theme === 'dark' ? '#ddd' : '#333',
                     marginTop: '0.5rem'
                   }}
                 >
