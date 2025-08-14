@@ -77,10 +77,7 @@ function App() {
     },
     {
       title: 'Random photos and screenshots',
-      content: `
-      <img src="https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/Screenshot%202025-07-22%20214311.png" alt="United Airlines jet flying upward with landing gear extended and flames coming from the right engine. The aircraft is set against a partly cloudy sky, and the word UNITED is visible on the fuselage in large blue letters. The scene conveys urgency and tension." />
-      <img src="https://github.com/Something-Comicallyfunny/THESITEOFALIFETIME/blob/main/737compressed.jpg?raw=true" alt="Commercial jet in flight with blue sky and scattered clouds in the background. The aircraft is viewed from below and slightly to the side, showing its wings and engines. The mood is dynamic and energetic." />
-      `
+      content: 'none yet'
     },
     { 
       title: 'Contact Me',
