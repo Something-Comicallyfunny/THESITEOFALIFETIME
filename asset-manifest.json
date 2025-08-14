@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/THESITEOFALIFETIME/static/css/main.3b6bc05d.css",
-    "main.js": "/THESITEOFALIFETIME/static/js/main.b16cb3bb.js",
+    "main.js": "/THESITEOFALIFETIME/static/js/main.ab543f6b.js",
     "static/js/453.ae488751.chunk.js": "/THESITEOFALIFETIME/static/js/453.ae488751.chunk.js",
     "index.html": "/THESITEOFALIFETIME/index.html",
     "main.3b6bc05d.css.map": "/THESITEOFALIFETIME/static/css/main.3b6bc05d.css.map",
-    "main.b16cb3bb.js.map": "/THESITEOFALIFETIME/static/js/main.b16cb3bb.js.map",
+    "main.ab543f6b.js.map": "/THESITEOFALIFETIME/static/js/main.ab543f6b.js.map",
     "453.ae488751.chunk.js.map": "/THESITEOFALIFETIME/static/js/453.ae488751.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3b6bc05d.css",
-    "static/js/main.b16cb3bb.js"
+    "static/js/main.ab543f6b.js"
   ]
 }
