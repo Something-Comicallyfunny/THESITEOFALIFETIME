@@ -45,7 +45,7 @@ const App = () => {
     <div
       style={{
         minHeight: '100vh',
-        backgroundImage: `url('https://website.cdn.tritrisim.com/compressed/737.jpg')`,
+        backgroundImage: `url('https://raw.githubusercontent.com/Bofamily/tfx-images/refs/heads/main/image_11.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
@@ -126,8 +126,8 @@ const App = () => {
               background: theme === 'dark'
                 ? 'rgba(0,0,0,0.35)'
                 : 'rgba(255,255,255,0.35)',
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
               borderRadius: '20px',
               padding: '1rem',
               marginBottom: '1rem',
