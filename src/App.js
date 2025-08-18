@@ -96,7 +96,7 @@ function App() {
     <div
       style={{
         minHeight: '100vh',
-        backgroundImage: `url('https://raw.githubusercontent.com/Bofamily/tfx-images/refs/heads/main/image_11.png')`,
+        backgroundImage: `url('https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/Microsoft_Flight_Simulator_2024_16_08_2025_10_22_31.png')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
