@@ -60,9 +60,10 @@ const randomImages = [
 
 const randomImage = randomImages[Math.floor(Math.random() * randomImages.length)];
 
-const sections =[
+const sections = [
+    {
       title: 'Who is Something Comical?',
-      content: 'I'm Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.'
+      content: 'I\'m Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.'
     },
     {
       title: 'Coding',
@@ -80,16 +81,16 @@ const sections =[
       title: 'My involvement in TFX',
       content: 'I’m currently in the main 10 devs for TriTriSim TFX (TriTriSim.com). We help bring realistic FX to MSFS 2020 and 24. I love the TFX community and I’m so excited to see what else our dev team can cook up.'
     },
-{
-  title: 'Random photos and screenshots',
-  content: (
-    <img
-      src={randomImage}
-      alt="Random from TriTriSim"
-      style={{ width: "100%", borderRadius: "12px" }}
-    />
-  )
-},
+    {
+      title: 'Random photos and screenshots',
+      content: (
+        <img
+          src={randomImage}
+          alt="Random from TriTriSim"
+          style={{ width: "100%", borderRadius: "12px" }}
+        />
+      )
+    },
     { 
       title: 'Contact Me',
       content:'You can message me on Discord at <a href="https://discord.com/users/1244909861922410571" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Something Comical#1234</a> or email me at <a href="mailto:ezradixon29@gmail.com" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">ezradixon29@gmail.com</a>.'
@@ -100,7 +101,11 @@ const sections =[
     }
   ];
 
- const  toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+function App() {
+  const [theme, setTheme] = useState('dark');
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
   const handleExpand = (index) => setExpandedIndex(expandedIndex === index ? null : index);
 
   return (

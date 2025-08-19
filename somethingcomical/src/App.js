@@ -1,244 +1,192 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import DOMPurify from 'dompurify';
+import './App.css'; // for Google Fonts
 
-const App = () => {
-  const [theme, setTheme] = useState('dark');
-  const [expandedIndex, setExpandedIndex] = useState(null);
+const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
+  <>
+    {sections.map((section, index) => (
+      <motion.div
+        key={index}
+        onClick={() => handleExpand(index)}
+        whileHover={{ scale: 1.02 }}
+        style={{
+          background: theme === 'dark'
+            ? 'rgba(0,0,0,0.35)'
+            : 'rgba(255,255,255,0.35)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderRadius: '20px',
+          padding: '1rem',
+          marginBottom: '1rem',
+          cursor: 'pointer',
+          overflow: 'hidden',
+          boxShadow: '0 4px 30px rgba(0,0,0,0.2)',
+          border: theme === 'dark'
+            ? '1px solid rgba(255,255,255,0.2)'
+            : '1px solid rgba(0,0,0,0.1)'
+        }}
+      >
+        <h2 style={{ margin: 0, color: theme === 'dark' ? '#fff' : '#000' }}>
+          {section.title}
+        </h2>
 
-  const sections = [
-    {
-      title: 'Who is Something Comical?',
-      content: `I’m Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.`
-    },
-    {
-      title: 'Coding',
-      content: `I have a lot of experience in coding. From JS to C++, I have used them all. I also have experience with server backends and frontends.`
-    },
-    {
-      title: 'Audio Mixing',
-      content: `One huge aspect of my life is music. I love music. With the love of music, comes (at least for me) the love of making it sound good. I do audio mixing for a few local companies. I primarily mix on the Allen & Heath SQ5 and the Behringer X32.`
-    },
-    {
-      title: 'Lighting',
-      content: `With the love of music and making it sound good also comes the love of making it look good. I love lighting and did lighting for a local company part time for a few years. I'm trained in ONYX by Obsidian Control Systems however I'm looking to expand my knowledge into other software.`
-    },
-    {
-      title: 'My involvement in TFX',
-      content: 'I’m currently in the main 10 dev center for TriTriSim TFX (TriTriSim.com). We help bring realistic FX to MSFS 2020 and 24. I love the TFX community and I’m so excited to see what else our dev team can cook up.'
-    },
-    {
-      title: 'Random photos and screenshots',
-      content: 'None yet!'
-    }
-  ];
+        <AnimatePresence>
+          {expandedIndex === index && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                color: theme === 'dark' ? '#ddd' : '#333',
+                marginTop: '0.5rem'
+              }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(section.content) }}
+            />
+          )}
+        </AnimatePresence>
+      </motion.div>
+    ))}
+  </>
+);
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+function App() {
+  const [theme, setTheme] = useState('dark');
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
-  return (
-    <>
-      <style>{`
-        @keyframes textShimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
+  const sections = [
+    {
+      title: 'Who is Something Comical?',
+      content: 'I’m Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.'
+    },
+    {
+      title: 'Coding',
+      content: 'I have a lot of experience in coding. From JS to C++, I have used them all. I also have experience with server backends and frontends.'
+    },
+    {
+      title: 'Audio Mixing',
+      content: 'One huge aspect of my life is music. I love music. With the love of music, comes (at least for me) the love of making it sound good. I do audio mixing for a few local companies. I primarily mix on the Allen & Heath SQ5 and the Behringer X32.'
+    },
+    {
+      title: 'Lighting',
+      content: 'With the love of music and making it sound good also comes the love of making it look good. I love lighting and did lighting for a local company part time for a few years. I\'m trained in ONYX by Obsidian Control Systems however I\'m looking to expand my knowledge into other software.'
+    },
+    {
+      title: 'My involvement in TFX',
+      content: 'I’m currently in the main 10 dev center for TriTriSim TFX (TriTriSim.com). We help bring realistic FX to MSFS 2020 and 24. I love the TFX community and I’m so excited to see what else our dev team can cook up.'
+    },
+    {
+      title: 'Random photos and screenshots',
+      content: 'none yet'
+    },
+    { 
+      title: 'Contact Me',
+      content:'You can message me on Discord at <a href="https://discord.com/users/1244909861922410571" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Something Comical#1234</a> or email me at <a href="mailto:ezradixon29@gmail.com" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">ezradixon29@gmail.com</a>.'
+    },
+    {
+      title: 'Thanks',
+      content: 'I want to take the time to thank a few key people in the development of this site. I want to thank <a href="https://discord.com/users/1098292586839543919" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Ted</a> for helping me and encouradging me while I made the site and hosting the current background image. (he will also hopefully contribute to the prod in the future) I also want to thank <a href="https://discord.com/users/1388995060678529196" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Pepe</a> for uploading the first background I used and letting me piggy back off of it.. I also want to thank the TFX Team <a href="https://tritrisim.com" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">(TriTriSim.com)</a> for being the amazing team that we are and for all the hard work we do to make TFX the best it can be. And finally, I want to thank <a href="YOU" style="color: rgba(27, 5, 105, 1); text-decoration: underline;">YOU</a> for visiting my site and taking the time to read this. I hope you have a great day! Oh and hi TriTriTheCube'
+    }
+  ];
 
-        .shimmer-text {
-          position: relative;
-          display: inline-block;
-          background: linear-gradient(
-            90deg,
-            #00c6ff 0%,
-            #ff00c6 50%,
-            #00c6ff 100%
-          );
-          background-size: 200% 100%;
-          background-position: -200% 0;
-          background-repeat: no-repeat;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: ${theme === 'dark' ? '#ffffff' : '#000000'};
-          transition: color 0.6s ease;
-        }
+const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+const handleExpand = (index) => setExpandedIndex(expandedIndex === index ? null : index);
 
-        .shimmer-text:hover {
-          animation: textShimmer 1.5s linear forwards;
-          color: transparent;
-        }
-      `}</style>
-      
-      <div
-        style={{
-          backgroundImage: `url('https://website.cdn.tritrisim.com/compressed/737.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '100vh',
-          position: 'relative',
-          filter: theme === 'dark' ? 'brightness(1)' : 'brightness(1)'
-        }}
-        className="flex flex-col items-center justify-center overflow-hidden"
-      >
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: theme === 'dark'
-              ? 'rgba(0, 0, 0, 0.7)'
-              : 'rgba(255, 255, 255, 0.7)',
-            backdropFilter: theme === 'dark' ? 'blur(10px)' : 'blur(5px)',
-            WebkitBackdropFilter: theme === 'dark' ? 'blur(10px)' : 'blur(5px)'
-          }}
-        />
+  return (
+    <div
+      style={{
+        minHeight: '100vh',
+        backgroundImage: `url('https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/Microsoft_Flight_Simulator_2024_16_08_2025_10_22_31.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        padding: '1rem',
+        fontFamily: "'Poppins', sans-serif"
+      }}
+    >
+      {/* Full-page overlay for slight dark/light tint */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: theme === 'dark'
+            ? 'rgba(0,0,0,0.3)'
+            : 'rgba(255,255,255,0.2)',
+          backdropFilter: 'blur(2px)',
+          WebkitBackdropFilter: 'blur(2px)',
+          zIndex: 0
+        }} />
 
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: [0.075, 0.82, 0.165, 1] }}
-          style={{ position: 'relative', zIndex: 10, width: '100%' }}
-        >
-          <header className="mb-16 text-center max-w-md mx-auto">
-            <h1
-              className="shimmer-text"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                textAlign: 'center',
-                width: '100%',
-                fontSize: '5rem',
-                fontWeight: 'bold',
-                marginBottom: '1.5rem'
-              }}
-            >
-              Something Comical
-            </h1>
-            <p
-              className="text-2xl sm:text-3xl lg:text-4xl leading-relaxed"
-              style={{
-                fontFamily: "'Roboto', sans-serif",
-                color: theme === 'dark' ? '#ffffff' : '#000000'
-              }}
-            >
-              A bit about me
-            </p>
-            <button
-              onClick={toggleTheme}
-              className="mt-6 px-8 py-4 rounded-xl shadow-md transition-all duration-300 text-lg"
-              style={{
-                backgroundColor: theme === 'dark'
-                  ? 'rgba(255, 255, 255, 0.2)'
-                  : 'rgba(255, 255, 255, 0.5)',
-                color: theme === 'dark' ? '#ffffff' : '#000000',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-                border: theme === 'dark'
-                  ? '1px solid rgba(255, 255, 255, 0.3)'
-                  : '1px solid rgba(0, 0, 0, 0.2)'
-              }}
-            >
-              Switch to {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-            </button>
-          </header>
+      <div style={{ zIndex: 1, textAlign: 'center', maxWidth: '800px', width: '100%' }}>
+        {/* Title */}
+        <h1
+          style={{
+            fontSize: '3rem',
+            fontWeight: '700',
+            color: theme === 'dark' ? '#fff' : '#000',
+            marginBottom: '0.5rem',
+            textShadow: '2px 2px 8px rgba(0,0,0,0.4)'
+          }}
+        >
+          Something Comical
+        </h1>
 
-          <section className="max-w-xl sm:max-w-2xl lg:max-w-4xl mx-auto px-4">
-            {sections.map((section, index) => (
-              <motion.div
-                key={index}
-                layout
-                onClick={() =>
-                  setExpandedIndex(index === expandedIndex ? null : index)
-                }
-                aria-expanded={index === expandedIndex}
-                className={`cursor-pointer rounded-2xl shadow-xl p-8 mb-6 flex flex-col space-y-4 transition-all duration-[1200ms]`}
-                style={{
-                  backgroundColor: theme === 'dark'
-                    ? 'rgba(255, 255, 255, 0.2)'
-                    : 'rgba(255, 255, 255, 0.8)',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  border: theme === 'dark'
-                    ? '1px solid rgba(255, 255, 255, 0.2)'
-                    : '1px solid rgba(0, 0, 0, 0.15)',
-                  color: theme === 'dark' ? '#ffffff' : '#000000'
-                }}
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: theme === 'dark'
-                    ? '0 8px 16px rgba(0, 0, 0, 0.4)'
-                    : '0 8px 16px rgba(0, 0, 0, 0.2)'
-                }}
-                transition={{
-                  duration: 1.2,
-                  ease: [0.04, 0.62, 0.23, 0.98]
-                }}
-              >
-                <motion.h2
-                  className="shimmer-text"
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: '2rem',
-                    fontWeight: '700',
-                    marginBottom: '0.5rem',
-                    display: 'inline-block'
-                  }}
-                  layout="position"
-                >
-                  {section.title}
-                </motion.h2>
-                <AnimatePresence>
-                  {index === expandedIndex && (
-                    <motion.div
-                      key="content"
-                      initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
-                      animate={{
-                        opacity: 1,
-                        height: 'auto',
-                        overflow: 'hidden'
-                      }}
-                      exit={{
-                        opacity: 0,
-                        height: 0,
-                        overflow: 'hidden',
-                        transition: {
-                          duration: 0.6,
-                          ease: [0.075, 0.82, 0.165, 1]
-                        }
-                      }}
-                      transition={{
-                        duration: 0.8,
-                        ease: [0.075, 0.82, 0.165, 1]
-                      }}
-                      className="text-lg sm:text-xl leading-relaxed"
-                      style={{
-                        fontFamily: "'Roboto', sans-serif",
-                        color: theme === 'dark' ? '#ffffff' : '#000000'
-                      }}
-                    >
-                      {section.content}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </section>
+        {/* Subtitle */}
+        <p
+          style={{
+            fontSize: '1.25rem',
+            color: theme === 'dark' ? '#eee' : '#333',
+            marginBottom: '1.5rem',
+            textShadow: '1px 1px 4px rgba(0,0,0,0.2)'
+          }}
+        >
+          A bit about me and what I do
+        </p>
 
-          <footer className="mt-16 text-center">
-            <p
-              className="text-base sm:text-lg"
-              style={{
-                fontFamily: "'Roboto', sans-serif",
-                color: theme === 'dark' ? '#ffffff' : '#000000'
-              }}
-            >
-              &copy; 2025 something_comical. All rights reserved.
-            </p>
-          </footer>
-        </motion.div>
-      </div>
-    </>
-  );
-};
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          style={{
+            padding: '0.5rem 1rem',
+            borderRadius: '999px',
+            border: 'none',
+            background: theme === 'dark' ? '#fff' : '#000',
+            color: theme === 'dark' ? '#000' : '#fff',
+            cursor: 'pointer',
+            marginBottom: '2rem'
+          }}
+        >
+          Switch to {theme === 'dark' ? 'Light' : 'Dark'} Mode
+        </button>
+
+
+        <SectionList
+          sections={sections}
+          theme={theme}
+          expandedIndex={expandedIndex}
+          handleExpand={handleExpand} />
+
+        {/* Footer */}
+        <footer
+          style={{
+            marginTop: '2rem',
+            fontSize: '0.9rem',
+            color: theme === 'dark' ? '#aaa' : '#555'
+          }}
+        >
+          © {new Date().getFullYear()} Something Comical
+        </footer>
+      </div>
+    </div>
+  );
+}
 
 export default App;
