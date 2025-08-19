@@ -13,9 +13,9 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
           background: theme === 'dark'
             ? 'rgba(0,0,0,0.35)'
             : 'rgba(255,255,255,0.35)',
-          backdropFilter: 'blur(50px)',
-          WebkitBackdropFilter: 'blur(50px)',
-          borderRadius: '20px',
+          backdropFilter: 'blur(0px)',
+          WebkitBackdropFilter: 'blur(0px)',
+          borderRadius: '50px',
           padding: '1rem',
           marginBottom: '1rem',
           cursor: 'pointer',
@@ -182,7 +182,7 @@ function App() {
           }}
         >
           © {new Date().getFullYear()} Something Comical. Last 
-updated 19/8/25 2:55 PM AEST        
+updated 19/8/25 3:09 PM AEST        
   </footer>
       </div>
     </div>
