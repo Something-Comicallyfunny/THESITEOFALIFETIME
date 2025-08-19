@@ -181,7 +181,7 @@ function App() {
             color: theme === 'dark' ? '#aaa' : '#555'
           }}
         >
-          © {new Date().getFullYear()} Something Comical Last 
+          © {new Date().getFullYear()} Something Comical. Last 
 updated 19/8/25 2:55 PM AEST        
   </footer>
       </div>
