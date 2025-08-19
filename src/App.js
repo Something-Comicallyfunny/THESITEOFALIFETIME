@@ -13,9 +13,9 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
           background: theme === 'dark'
             ? 'rgba(0,0,0,0.35)'
             : 'rgba(255,255,255,0.35)',
-          backdropFilter: 'blur(0px)',
-          WebkitBackdropFilter: 'blur(0px)',
-          borderRadius: '0px',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderRadius: '20px',
           padding: '1rem',
           marginBottom: '1rem',
           cursor: 'pointer',
@@ -119,8 +119,8 @@ function App() {
           backgroundColor: theme === 'dark'
             ? 'rgba(0,0,0,0.3)'
             : 'rgba(255,255,255,0.2)',
-          backdropFilter: 'blur(2px)',
-          WebkitBackdropFilter: 'blur(2px)',
+          backdropFilter: 'blur(0px)',
+          WebkitBackdropFilter: 'blur(0px)',
           zIndex: 0
         }} />
 
@@ -155,7 +155,7 @@ function App() {
           onClick={toggleTheme}
           style={{
             padding: '0.5rem 1rem',
-            borderRadius: '0px',
+            borderRadius: '20px',
             border: 'none',
             background: theme === 'dark' ? '#fff' : '#000',
             color: theme === 'dark' ? '#000' : '#fff',
