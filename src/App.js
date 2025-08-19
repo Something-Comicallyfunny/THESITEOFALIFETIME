@@ -102,7 +102,7 @@ const sections = [
     },
     {
       title: 'Thanks',
-      content: 'I want to take the time to thank a few key people in in the development of this site. I want to thank <a href="https://discord.com/users/1098292586839543919" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Ted</a> for helping me and encouradging me while I made the site and hosting the current background image. (he will also hopefully contribute to the prod in the future) I also want to thank <a href="https://discord.com/users/1388995060678529196" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Pepe</a> for uploading the first background I used and letting me piggy back off of it.. I also want to thank the TFX Team <a href="https://tritrisim.com" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">(TriTriSim.com)</a> for being the amazing team that we are and for all the hard work we do to make TFX the best it can be. And finally, I want to thank <a href="YOU" style="color: rgba(27, 5, 105, 1); text-decoration: underline;">YOU</a> for visiting my site and taking the time to read this. I hope you have a great day! Oh and hi TriTriTheCube'
+      content: 'I want to take the time to thank a few key people in in the development of this site. I want to thank <a href="https://discord.com/users/1098292586839543919" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Ted</a> for helping me and encouradging me while I made the site and hosting the current background image. (he will also hopefully contribute to the prod in the future) I also want to thank <a href="https://discord.com/users/1388995060678529196" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Pepe</a> for uploading the first background I used and letting me piggy back off of it..  And I cant forget to mention <a href="https://discord.com/users/1373679841068711956" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">TriTriTheCuber</a> for bug fixes. I also want to thank the TFX Team <a href="https://tritrisim.com" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">(TriTriSim.com)</a> for being the amazing team that we are and for all the hard work we do to make TFX the best it can be. And finally, I want to thank <a href="YOU" style="color: rgba(255, 5, 105, 1); text-decoration: underline;">YOU</a> for visiting my site and taking the time to read this. I hope you have a great day! Oh and hi TriTriTheCube'
     }
   ];
 
@@ -203,7 +203,7 @@ function App() {
           }}
         >
           © {new Date().getFullYear()} Something Comical. Last 
-updated 19/8/25 8:53 AM UTC        
+updated 19/8/25 6:15 PM AEST      
   </footer>
       </div>
     </div>
