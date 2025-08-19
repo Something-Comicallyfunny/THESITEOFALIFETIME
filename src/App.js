@@ -55,9 +55,9 @@ function App() {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const randomImages = [
   "https://website.cdn.tritrisim.com/compressed/737.jpg",
-  "https://website.cdn.tritrisim.com/compressed/a320.jpg",
-  "https://website.cdn.tritrisim.com/compressed/747.jpg",
-  "https://website.cdn.tritrisim.com/compressed/f18.jpg"
+  "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/Screenshot%202025-07-22%20214311.png",
+  "https://github.com/Something-Comicallyfunny/THESITEOFALIFETIME/blob/main/4E5270B9-4E99-449B-9CEE-D943622A5451.png",
+  "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/image.png"
 ];
 
 // pick a random one each time component loads
