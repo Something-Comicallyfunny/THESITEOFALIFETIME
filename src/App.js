@@ -62,7 +62,7 @@ const randomImage = randomImages[Math.floor(Math.random() * randomImages.length)
 
 const sections =[
       title: 'Who is Something Comical?',
-      content: 'I’m Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.'
+      content: 'I'm Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.'
     },
     {
       title: 'Coding',
