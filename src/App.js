@@ -50,21 +50,36 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
   </>
 );
 
-function App() {
-  const [theme, setTheme] = useState('dark');
-  const [expandedIndex, setExpandedIndex] = useState(null);
   const randomImages = [
-  "https://website.cdn.tritrisim.com/compressed/737.jpg",
-  "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/Screenshot%202025-07-22%20214311.png",
-  "https://github.com/Something-Comicallyfunny/THESITEOFALIFETIME/blob/main/4E5270B9-4E99-449B-9CEE-D943622A5451.png",
-  "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/image.png"
-];
+    "https://website.cdn.tritrisim.com/compressed/737.jpg",
+    "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/Screenshot%202025-07-22%20214311.png",
+    "https://github.com/Something-Comicallyfunny/THESITEOFALIFETIME/blob/main/4E5270B9-4E99-449B-9CEE-D943622A5451.png",
+    "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/image.png"
+  ];
 
-// pick a random one each time component loads
-const randomImage = randomImages[Math.floor(Math.random() * randomImages.length)];
+  // This line correctly picks a random image URL (a string)
+  const randomImage = randomImages[Math.floor(Math.random() * randomImages.length)];
 
-  const sections = [
-    {
+  return (
+    <div className={`app-container ${theme}`}>
+      {/* Other components and content can go here */}
+      
+      <div className="image-display-section">
+        <h2>Random photos and screenshots</h2>
+        {/*
+          This is the key fix. We use the 'randomImage' variable, 
+          which holds the URL string, as the source for the <img> tag.
+        */}
+        <img 
+          src={randomImage} 
+          alt="A random photo or screenshot" 
+          style={{ width: '100%', borderRadius: '10px' }} 
+        />
+      </div>
+      
+    </div>
+  );
+}
       title: 'Who is Something Comical?',
       content: 'I’m Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.'
     },
