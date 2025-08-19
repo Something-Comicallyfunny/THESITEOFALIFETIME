@@ -96,7 +96,7 @@ function App() {
     <div
       style={{
         minHeight: '100vh',
-        backgroundImage: `url('https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/FlightSimulator_2025-08-17_14-08-30_761.png')`,
+        backgroundImage: `url('https://github.com/somethingcomicalalt/SomethingLux/blob/main/FlightSimulator_2025-08-17_14-08-30_761.png?raw=true')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
