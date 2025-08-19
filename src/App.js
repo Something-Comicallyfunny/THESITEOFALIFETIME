@@ -10,23 +10,23 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
         onClick={() => handleExpand(index)}
         whileHover={{ scale: 1.02 }}
         style={{
-          background: theme === 'dark'
-            ? 'rgba(0,0,0,0.35)'
-            : 'rgba(255,255,255,0.35)',
-          backdropFilter: 'blur(0px)',
-          WebkitBackdropFilter: 'blur(0px)',
-          borderRadius: '50px',
-          padding: '1rem',
-          marginBottom: '1rem',
-          cursor: 'pointer',
-          overflow: 'hidden',
-          boxShadow: '0 4px 30px rgba(0,0,0,0.2)',
-          border: theme === 'dark'
-            ? '1px solid rgba(255,255,255,0.2)'
-            : '1px solid rgba(0,0,0,0.1)'
+          background: theme === "dark"
+            ? "rgba(0,0,0,0.35)"
+            : "rgba(255,255,255,0.35)",
+          backdropFilter: "blur(0px)",
+          WebkitBackdropFilter: "blur(0px)",
+          borderRadius: "50px",
+          padding: "1rem",
+          marginBottom: "1rem",
+          cursor: "pointer",
+          overflow: "hidden",
+          boxShadow: "0 4px 30px rgba(0,0,0,0.2)",
+          border: theme === "dark"
+            ? "1px solid rgba(255,255,255,0.2)"
+            : "1px solid rgba(0,0,0,0.1)"
         }}
       >
-        <h2 style={{ margin: 0, color: theme === 'dark' ? '#fff' : '#000' }}>
+        <h2 style={{ margin: 0, color: theme === "dark" ? "#fff" : "#000" }}>
           {section.title}
         </h2>
 
@@ -34,15 +34,20 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
           {expandedIndex === index && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               style={{
-                color: theme === 'dark' ? '#ddd' : '#333',
-                marginTop: '0.5rem'
+                color: theme === "dark" ? "#ddd" : "#333",
+                marginTop: "0.5rem"
               }}
-              dangerouslySetInnerHTML={{ __html: section.content }}
-            />
+            >
+              {typeof section.content === "string" ? (
+                <div dangerouslySetInnerHTML={{ __html: section.content }} />
+              ) : (
+                section.content
+              )}
+            </motion.div>
           )}
         </AnimatePresence>
       </motion.div>
