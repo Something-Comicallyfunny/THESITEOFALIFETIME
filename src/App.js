@@ -155,7 +155,7 @@ function App() {
           onClick={toggleTheme}
           style={{
             padding: '0.5rem 1rem',
-            borderRadius: '999px',
+            borderRadius: '0px',
             border: 'none',
             background: theme === 'dark' ? '#fff' : '#000',
             color: theme === 'dark' ? '#000' : '#fff',
