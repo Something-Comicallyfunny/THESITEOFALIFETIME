@@ -58,7 +58,7 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
 const randomImages = [
   "https://website.cdn.tritrisim.com/compressed/737.jpg",
   "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/Screenshot%202025-07-22%20214311.png",
-  "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/blob/main/4E5270B9-4E99-449B-9CEE-D943622A5451.png?raw=true",
+  "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/4E5270B9-4E99-449B-9CEE-D943622A5451.png?raw=true",
   "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/image.png"
 ];
 
@@ -203,7 +203,7 @@ function App() {
           }}
         >
           © {new Date().getFullYear()} Something Comical. Last 
-updated 19/8/25 5:36 PM AEST        
+updated 19/8/25 8:53 AM UTC        
   </footer>
       </div>
     </div>
