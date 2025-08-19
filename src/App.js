@@ -13,8 +13,8 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
           background: theme === 'dark'
             ? 'rgba(0,0,0,0.35)'
             : 'rgba(255,255,255,0.35)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
+          backdropFilter: 'blur(50px)',
+          WebkitBackdropFilter: 'blur(50px)',
           borderRadius: '20px',
           padding: '1rem',
           marginBottom: '1rem',
@@ -181,8 +181,9 @@ function App() {
             color: theme === 'dark' ? '#aaa' : '#555'
           }}
         >
-          © {new Date().getFullYear()} Something Comical
-        </footer>
+          © {new Date().getFullYear()} Something Comical Last 
+updated 19/8/25 2:55 PM AEST        
+  </footer>
       </div>
     </div>
   );
