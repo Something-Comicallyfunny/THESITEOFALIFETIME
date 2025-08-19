@@ -198,7 +198,7 @@ function App() {
           }}
         >
           © {new Date().getFullYear()} Something Comical. Last 
-updated 19/8/25 5:25 PM AEST        
+updated 19/8/25 5:36 PM AEST        
   </footer>
       </div>
     </div>
