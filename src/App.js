@@ -53,6 +53,15 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
 function App() {
   const [theme, setTheme] = useState('dark');
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const randomImages = [
+  "https://website.cdn.tritrisim.com/compressed/737.jpg",
+  "https://website.cdn.tritrisim.com/compressed/a320.jpg",
+  "https://website.cdn.tritrisim.com/compressed/747.jpg",
+  "https://website.cdn.tritrisim.com/compressed/f18.jpg"
+];
+
+// pick a random one each time component loads
+const randomImage = randomImages[Math.floor(Math.random() * randomImages.length)];
 
   const sections = [
     {
@@ -75,10 +84,16 @@ function App() {
       title: 'My involvement in TFX',
       content: 'I’m currently in the main 10 devs for TriTriSim TFX (TriTriSim.com). We help bring realistic FX to MSFS 2020 and 24. I love the TFX community and I’m so excited to see what else our dev team can cook up.'
     },
-    {
-      title: 'Random photos and screenshots',
-      content: 'none yet'
-    },
+{
+  title: 'Random photos and screenshots',
+  content: (
+    <img
+      src={randomImage}
+      alt="Random from TriTriSim"
+      style={{ width: "100%", borderRadius: "12px" }}
+    />
+  )
+},
     { 
       title: 'Contact Me',
       content:'You can message me on Discord at <a href="https://discord.com/users/1244909861922410571" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Something Comical#1234</a> or email me at <a href="mailto:ezradixon29@gmail.com" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">ezradixon29@gmail.com</a>.'
