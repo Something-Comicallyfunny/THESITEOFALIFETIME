@@ -181,7 +181,7 @@ function App() {
             color: theme === 'dark' ? '#aaa' : '#555'
           }}
         >
-          © {new Date().getFullYear()} Something Comical test
+          © {new Date().getFullYear()} Something Comical
         </footer>
       </div>
     </div>
