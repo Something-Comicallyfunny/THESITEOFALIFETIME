@@ -197,7 +197,7 @@ const randomImage = randomImages[Math.floor(Math.random() * randomImages.length)
           }}
         >
           © {new Date().getFullYear()} Something Comical. Last 
-updated 19/8/25 3:09 PM AEST        
+updated 19/8/25 5:04 PM AEST        
   </footer>
       </div>
     </div>
