@@ -13,9 +13,9 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
           background: theme === 'dark'
             ? 'rgba(0,0,0,0.35)'
             : 'rgba(255,255,255,0.35)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderRadius: '20px',
+          backdropFilter: 'blur(0px)',
+          WebkitBackdropFilter: 'blur(0px)',
+          borderRadius: '0px',
           padding: '1rem',
           marginBottom: '1rem',
           cursor: 'pointer',
