@@ -73,7 +73,7 @@ function App() {
     },
     {
       title: 'My involvement in TFX',
-      content: 'I’m currently in the main 10 dev center for TriTriSim TFX (TriTriSim.com). We help bring realistic FX to MSFS 2020 and 24. I love the TFX community and I’m so excited to see what else our dev team can cook up.'
+      content: 'I’m currently in the main 10 devs for TriTriSim TFX (TriTriSim.com). We help bring realistic FX to MSFS 2020 and 24. I love the TFX community and I’m so excited to see what else our dev team can cook up.'
     },
     {
       title: 'Random photos and screenshots',
@@ -181,7 +181,7 @@ function App() {
             color: theme === 'dark' ? '#aaa' : '#555'
           }}
         >
-          © {new Date().getFullYear()} Something Comical
+          © {new Date().getFullYear()} Something Comical test
         </footer>
       </div>
     </div>
