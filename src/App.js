@@ -49,8 +49,18 @@ const SectionList = ({ sections, theme, expandedIndex, handleExpand }) => (
     ))}
   </>
 );
+// Random image setup
+const randomImages = [
+  "https://website.cdn.tritrisim.com/compressed/737.jpg",
+  "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/Screenshot%202025-07-22%20214311.png",
+  "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/blob/main/4E5270B9-4E99-449B-9CEE-D943622A5451.png?raw=true",
+  "https://raw.githubusercontent.com/Something-Comicallyfunny/THESITEOFALIFETIME/refs/heads/main/image.png"
+];
 
-  
+
+const randomImage = randomImages[Math.floor(Math.random() * randomImages.length)];
+
+const sections =[
       title: 'Who is Something Comical?',
       content: 'I’m Ezra, a detail-oriented and creative guy with a passion for technology and aviation. My interests range from developing custom effects in Microsoft Flight Simulator (TriTriSim.com) to contributing to tech in theatre productions. I bring enthusiasm, problem-solving skills, and a commitment to delivering high-quality results in every project I undertake.'
     },
