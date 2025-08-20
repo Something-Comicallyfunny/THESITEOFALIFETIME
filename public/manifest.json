@@ -5,7 +5,7 @@
     {
       "src": "logo192.ico",
       "sizes": "192/192",
-      "type": "image/png"
+      "type": "image/x-icon",
     },
     {
       "src": "logo192.png",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "##1E1E22",
+  "background_color": "#0C0C0E"
 }
