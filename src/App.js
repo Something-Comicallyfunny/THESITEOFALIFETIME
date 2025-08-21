@@ -103,6 +103,30 @@ const sections = [
     {
       title: 'Thanks',
       content: 'I want to take the time to thank a few key people in in the development of this site. I want to thank <a href="https://discord.com/users/1098292586839543919" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Ted</a> for helping me and encouradging me while I made the site and hosting the current background image. (he will also hopefully contribute to the prod in the future) I also want to thank <a href="https://discord.com/users/1388995060678529196" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">Pepe</a> for uploading the first background I used and letting me piggy back off of it..  And I cant forget to mention <a href="https://discord.com/users/1373679841068711956" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">TriTriTheCuber</a> for bug fixes. I also want to thank the TFX Team <a href="https://tritrisim.com" style="color: rgba(255, 0, 0, 1); text-decoration: underline;">(TriTriSim.com)</a> for being the amazing team that we are and for all the hard work we do to make TFX the best it can be. And finally, I want to thank <a href="YOU" style="color: rgba(255, 5, 105, 1); text-decoration: underline;">YOU</a> for visiting my site and taking the time to read this. I hope you have a great day! Oh and hi TriTriTheCube'
+    },
+    {
+      title: 'Download TFX',
+      content: (
+        <div style={{ textAlign: "center" }}>
+          <p>Wanna download TFX to see what its all about? Click the link below!:</p>
+          <a 
+            href="https://installer.cdn.tritrisim.com/TriTriSim%20Installer%20Source%201.7.5.zip"   
+            download 
+            style={{
+              display: "inline-block",
+              padding: "12px 24px",
+              backgroundColor: "#0004ffff",
+              color: "white",
+              borderRadius: "8px",
+              textDecoration: "none",
+              fontWeight: "bold",
+              marginTop: "10px"
+            }}
+          >
+            ⬇ Download TFX
+          </a>
+        </div>
+      )
     }
   ];
 
@@ -187,24 +211,13 @@ function App() {
           Switch to {theme === 'dark' ? 'Light' : 'Dark'} Mode
         </button>
 
-
+        {/* Section List */}
         <SectionList
           sections={sections}
           theme={theme}
           expandedIndex={expandedIndex}
-          handleExpand={handleExpand} />
-
-        {/* Footer */}
-        <footer
-          style={{
-            marginTop: '2rem',
-            fontSize: '0.9rem',
-            color: theme === 'dark' ? '#aaa' : '#555'
-          }}
-        >
-          © {new Date().getFullYear()} Something Comical. Last 
-updated 20/8/25 11:55 AM AEST      
-  </footer>
+          handleExpand={handleExpand}
+        />
       </div>
     </div>
   );
