@@ -227,14 +227,4 @@ function App() {
   );
 }
 
-const Footer = () => {
-  return (
-    <footer className="bg-gray-800 text-gray-400 text-center py-4 mt-10">
-      <p className="text-sm">
-        © {new Date().getFullYear()} Something Comical. Last updated: 21/8/25 9:15 PM AEST 
-      </p>
-    </footer>
-  );
-};
-// Add Footer to the App component
 export default App;
